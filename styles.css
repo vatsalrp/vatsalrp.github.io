@@ -1,0 +1,195 @@
+:root {
+    /* Colors */
+    --primary-color: #d81c4e;
+    --secondary-color: #a41cd8 ;
+    --background-color: #f4f4f4;
+    --text-color: #333;
+    --heading-color: #111;
+    --subtext-color: #666;
+    --link-color: #d81c4e;
+    --link-hover-color: #a41cd8 ;
+    --card-background: white;
+    --border-color: #ccc;
+
+    /* Fonts */
+    --font-family: Arial, sans-serif;
+    --font-size-base: 1rem;
+    --font-size-large: 1.5rem;
+    --font-size-xlarge: 2.5rem;
+    --font-size-small: 0.875rem;
+
+    /* Spacing */
+    --spacing-small: 10px;
+    --spacing-medium: 20px;
+    --spacing-large: 50px;
+
+    /* Transitions */
+    --transition-duration: 0.3s;
+    --transition-ease: ease;
+}
+
+/* General Styles */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1200px;
+    margin: var(--spacing-large) auto;
+    padding: var(--spacing-medium);
+}
+
+/* Profile Section */
+.profile-section {
+    text-align: center;
+    margin-bottom: var(--spacing-medium);
+}
+
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    object-fit: cover;
+    margin-bottom: var(--spacing-small);
+    transition: border-color var(--transition-duration) var(--transition-ease),
+                transform var(--transition-duration) var(--transition-ease);
+}
+
+.profile-picture:hover {
+    border-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.profile-links {
+    margin-top: var(--spacing-small);
+}
+
+.link {
+    margin: 0 var(--spacing-small);
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+    transition: color var(--transition-duration) var(--transition-ease);
+}
+
+.link:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+/* Name and Position */
+.name-section {
+    text-align: center;
+    margin-bottom: var(--spacing-medium);
+}
+
+.name-section h1 {
+    font-size: var(--font-size-xlarge);
+    color: var(--heading-color);
+}
+
+.name-section h2 {
+    font-size: var(--font-size-large);
+    color: var(--subtext-color);
+}
+
+/* Contact Info and Bio */
+.contact-section {
+    text-align: center;
+    margin-bottom: var(--spacing-medium);
+}
+
+.contact-section p {
+    margin: 5px 0;
+    color: var(--subtext-color);
+}
+
+/* Projects Section */
+.projects-section {
+    margin-bottom: var(--spacing-medium);
+}
+
+.projects-section h3 {
+    font-size: var(--font-size-large);
+    color: var(--heading-color);
+    margin-bottom: var(--spacing-small);
+}
+
+.projects {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-small);
+}
+
+.project-card {
+    background: var(--card-background);
+    padding: var(--spacing-small);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform var(--transition-duration) var(--transition-ease);
+}
+
+.project-card:hover {
+    transform: scale(1.02);
+}
+
+.project-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration) var(--transition-ease);
+}
+
+.project-title:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+}
+
+.project-desc {
+    color: var(--subtext-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-small);
+    }
+
+    .name-section h1 {
+        font-size: var(--font-size-large);
+    }
+
+    .name-section h2 {
+        font-size: var(--font-size-base);
+    }
+}
+
+/* Gradient border around the page */
+body {
+    position: relative;
+    min-height: 100vh;
+    margin: 0;
+    padding: var(--spacing-medium);
+    overflow: auto;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 5px solid transparent;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) border-box;
+    mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: -1;
+}
